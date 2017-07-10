@@ -14,5 +14,11 @@ namespace ClassWebsite.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult About()
+        {
+            return View();
+        }
     }
 }

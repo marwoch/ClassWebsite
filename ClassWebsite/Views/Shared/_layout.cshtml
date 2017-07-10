@@ -6,16 +6,27 @@
     <title>@ViewBag.Title</title>
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    @RenderSection("head", false)
 </head>
 <body>
-    <header>
-        <h1>Class Website</h1>
-    </header>
-    <main>
-        @RenderBody()
-    </main>
-    <footer>
-       <p>&copy; @DateTime.Now.Year - Rennaisance Code Monkey</p>
-    </footer>
+    <div class="container">
+        <header>
+            <h1>Class Website</h1>
+        </header>
+        <nav>
+            <ul class="nav nav-pills">
+                <li role="presentation" class="active"><a href="/Home/Index">Home</a></li>
+                <li role="presentation"><a href="/Home/About">About</a></li>
+            </ul>
+        </nav>
+        <main>
+            @RenderBody()
+        </main>
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Rennaisance Code Monkey</p>
+        </footer>
+    </div><!--end container-->
+    <script>src = "~/Scripts/jquery-1.9.1.js"</script>
+    <script>src = "~/Sripts/bootstrap.js"</script>
 </body>
 </html>
