@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassWebsite.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,13 @@ namespace ClassWebsite.Controllers
         [HttpGet]
         public ActionResult Register()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Register(RegisterViewModel mem)
+        {
+            
             return View();
         }
     }
