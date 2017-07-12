@@ -18,8 +18,22 @@ namespace ClassWebsite.Controllers
         [HttpPost]
         public ActionResult Register(RegisterViewModel mem)
         {
-            
-            return View();
+            // make sure model is valid
+            if (ModelState.IsValid)
+            {
+                //map values
+                Member m = new Member()
+                {
+                    UserName = mem.Username,
+                    Password = mem.Password,
+                    Email = mem.Email,
+                };
+                //if valid add to database
+                MemberDB.RegisterMember(m);
+                return RedirectToAction("Index", "Home");
+            }
+            //if invalid return view with errors
+            return View(mem);
         }
     }
 }
