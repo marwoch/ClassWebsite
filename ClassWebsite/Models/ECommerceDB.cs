@@ -22,6 +22,8 @@ namespace ClassWebsite.Models
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
         public virtual DbSet<Member> Members { get; set; }
+
+        public virtual DbSet<Product> Products { get; set; }
     }
 
 }

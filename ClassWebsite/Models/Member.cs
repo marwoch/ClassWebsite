@@ -11,8 +11,11 @@ namespace ClassWebsite.Models
         [Key]
         public int MemberID { get; set; } //primary key
 
+        [Required]
+        [StringLength(30)]
         public string UserName { get; set; } //req
 
+        [Required]
         public string Password { get; set; } //req
 
         public DateTime? DateOfBirth { get; set; } //nullable
@@ -23,6 +26,9 @@ namespace ClassWebsite.Models
 
         public string SecurityQuestion { get; set; } //req
 
+        public string SecurityAnswer { get; set; }
+
+        [Required]
         public string Email { get; set; } //req
     }
 

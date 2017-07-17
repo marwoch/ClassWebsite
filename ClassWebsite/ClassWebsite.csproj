@@ -125,6 +125,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductsEFController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -132,10 +133,20 @@
     <Compile Include="Migrations\201707172052086_AddedMember.Designer.cs">
       <DependentUpon>201707172052086_AddedMember.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707172121201_ModifiedMember.cs" />
+    <Compile Include="Migrations\201707172121201_ModifiedMember.Designer.cs">
+      <DependentUpon>201707172121201_ModifiedMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707172147168_AddedProduct.cs" />
+    <Compile Include="Migrations\201707172147168_AddedProduct.Designer.cs">
+      <DependentUpon>201707172147168_AddedProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ECommerceDB.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\MemberDB.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +157,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\ProductsEF\Create.cshtml" />
+    <Content Include="Views\ProductsEF\Delete.cshtml" />
+    <Content Include="Views\ProductsEF\Details.cshtml" />
+    <Content Include="Views\ProductsEF\Edit.cshtml" />
+    <Content Include="Views\ProductsEF\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -159,6 +175,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201707172052086_AddedMember.resx">
       <DependentUpon>201707172052086_AddedMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707172121201_ModifiedMember.resx">
+      <DependentUpon>201707172121201_ModifiedMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707172147168_AddedProduct.resx">
+      <DependentUpon>201707172147168_AddedProduct.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
