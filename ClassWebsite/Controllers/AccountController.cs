@@ -30,7 +30,7 @@ namespace ClassWebsite.Controllers
                 };
                 //if valid add to database
                 //hack: need to do
-                //MemberDB.RegisterMember(m);
+                MemberDB.RegisterMember(m);
                 return RedirectToAction("Index", "Home");
             }
             //if invalid return view with errors

@@ -8,6 +8,7 @@ namespace ClassWebsite.Models
 {
     public class Member
     {
+        [Key]
         public int MemberID { get; set; } //primary key
 
         public string UserName { get; set; } //req

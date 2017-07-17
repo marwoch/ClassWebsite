@@ -7,10 +7,15 @@ namespace ClassWebsite.Models
 {
     public static class MemberDB
     {
+        /// <summary>
+        /// Adds member to the database
+        /// </summary>
+        /// <param name="m">member to be added</param>
         public static void RegisterMember(Member m)
         {
-            //hack: Implement registeration
-            throw new NotImplementedException();
+            ECommerceDB db = new ECommerceDB();
+            db.Members.Add(m);
+            db.SaveChanges(); //MUST call savechanges for  INSERT/UPDATE/DELETES
         }
     }
 }
