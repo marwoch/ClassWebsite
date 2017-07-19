@@ -17,19 +17,61 @@ namespace ClassWebsite.Controllers
             return View(prods);
         }
 
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
 
-        public ActionResult Edit()
+        [HttpPost]
+        public ActionResult Create(Product p)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                //adds to database & send back to index
+                ProductDB.AddProduct(p);
+                return RedirectToAction("Index", "Product");
+            }
+            //return view with model errors
+            return View(p);
         }
 
-        public ActionResult Delete()
+        [HttpGet]
+        public ActionResult Edit(int? id)
         {
-            return View();
+            //if no product id is supplied in the ur
+            //user is redirected
+            if (id == null)
+            {
+                return RedirectToAction("Index", "Product");
+            }
+            Product p = ProductDB.GetProductById(id.Value);
+
+            if (p == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(p);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Product p)
+        {
+            if (ModelState.IsValid)
+            {
+                ProductDB.UpdateProduct(p);
+                return RedirectToAction("Index");
+            }
+
+            return View(p);
+        }
+
+        public ActionResult Delete(int? id)
+        {
+            //TODO: check if id is null
+            ProductDB.DeleteProductById(id.Value);
+            return RedirectToAction("Index");
         }
     }
 }

@@ -12,6 +12,8 @@
 @foreach(var p in Model)
 {
     <p>
-        @Html.DisplayFor(prod => p.Name)
+        @Html.DisplayFor(prod => p.Name) &nbsp;
+        @Html.ActionLink("Edit", "Edit", new { id=p.ProductID})
+        | @Html.ActionLink("Delete", "Delete", new { id=p.ProductID})
     </p>
 }
