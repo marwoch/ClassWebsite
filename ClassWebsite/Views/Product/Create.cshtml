@@ -1,0 +1,39 @@
+﻿@model ClassWebsite.Models.Product
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@*<form action="~/Product/Create" method="post">
+    </form>*@
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(p => p.Name)
+    @Html.EditorFor(p => p.Name)
+    @Html.ValidationMessageFor(p => p.Name)
+    <br />
+    @Html.LabelFor(p => p.Description)
+    @Html.TextAreaFor(p => p.Description)
+    @Html.ValidationMessageFor(p => p.Description)
+    <br />
+    @Html.LabelFor(p => p.StockKeepingUnit)
+    @Html.EditorFor(p => p.StockKeepingUnit)
+    @Html.ValidationMessageFor(p => p.StockKeepingUnit)
+    <br />
+    @Html.LabelFor(p => p.Quantity)
+    @Html.EditorFor(p => p.Quantity)
+    @Html.ValidationMessageFor(p => p.Quantity)
+    <br />
+    @Html.LabelFor(p => p.RetailPrice)
+    @Html.EditorFor(p => p.RetailPrice)
+    @Html.ValidationMessageFor(p => p.RetailPrice)
+    <br />
+    @Html.LabelFor(p => p.WholesalePrice)
+    @Html.EditorFor(p => p.WholesalePrice)
+    @Html.ValidationMessageFor(p => p.WholesalePrice)
+    <br /><br />
+    <input type="submit" value="Add Product"/>
+
+}

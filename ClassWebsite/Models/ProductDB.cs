@@ -15,7 +15,7 @@ namespace ClassWebsite.Models
 
             List<Product> prods = 
                 (from p in db.Products
-                 where p.Name == "widget"
+                 //where p.Name == "widget"
                  select p).ToList();
 
             return prods;

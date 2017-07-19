@@ -1,0 +1,17 @@
+﻿@model IEnumerable<ClassWebsite.Models.Product>
+@{
+    ViewBag.Title = "All Products";
+}
+
+<h2>View All Products</h2>
+
+<p>
+    @Html.ActionLink("Create Product", "Create", "Product")
+</p>
+
+@foreach(var p in Model)
+{
+    <p>
+        @Html.DisplayFor(prod => p.Name)
+    </p>
+}
