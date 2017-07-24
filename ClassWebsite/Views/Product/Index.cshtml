@@ -1,19 +1,62 @@
 ﻿@model IEnumerable<ClassWebsite.Models.Product>
+
 @{
-    ViewBag.Title = "All Products";
+    ViewBag.Title = "Index";
 }
 
-<h2>View All Products</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create Product", "Create", "Product")
+    @Html.ActionLink("Create New", "Create")
 </p>
+<table class="table table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StockKeepingUnit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WholesalePrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RetailPrice)
+        </th>
+        <th></th>
+    </tr>
 
-@foreach(var p in Model)
-{
-    <p>
-        @Html.DisplayFor(prod => p.Name) &nbsp;
-        @Html.ActionLink("Edit", "Edit", new { id=p.ProductID})
-        | @Html.ActionLink("Delete", "Delete", new { id=p.ProductID})
-    </p>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StockKeepingUnit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WholesalePrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RetailPrice)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })
+        </td>
+    </tr>
 }
+
+</table>
