@@ -70,6 +70,10 @@ namespace ClassWebsite.Controllers
         public ActionResult Delete(int? id)
         {
             //TODO: check if id is null
+            if (id == null)
+            {
+                return RedirectToAction("Index", "Product");
+            }
             ProductDB.DeleteProductById(id.Value);
             return RedirectToAction("Index");
         }
