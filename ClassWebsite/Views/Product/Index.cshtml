@@ -54,7 +54,8 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProductID }) |
+            @Html.ActionLink("Add to Cart", "AddToCart", "Cart", new { id=item.ProductID}, null)
         </td>
     </tr>
 }

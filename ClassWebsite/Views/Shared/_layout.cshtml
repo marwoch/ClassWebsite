@@ -17,7 +17,16 @@
             <ul class="nav nav-pills">
                 <li role="presentation" class="active"><a href="/Home/Index">Home</a></li>
                 <li role="presentation"><a href="/Home/About">About</a></li>
-                <li role="presentation">@Html.ActionLink("Register", "Register", "Account")</li>
+                @if (Session["MemberID"] == null)
+                {
+                    <li role="presentation">@Html.ActionLink("Register", "Register", "Account")</li>
+                    <li role="presentation">@Html.ActionLink("Sign-in", "Login", "Account")</li>
+                }
+                else
+                {
+                    <li role="presentation">@Html.ActionLink("Log Out", "LogOut", "Account")</li>
+                    <li role="presentation">@Html.ActionLink("View Profile", "MyAccount", "Account")</li>
+                }
                 <li role="presentation">@Html.ActionLink("View Products", "Index", "Product")</li>
             </ul>
         </nav>
