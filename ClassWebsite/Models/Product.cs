@@ -25,5 +25,8 @@ namespace ClassWebsite.Models
 
         [Range(0, double.MaxValue)]
         public double RetailPrice { get; set; }
+
+        
+        public string PhotoLocation { get; set; }
     }
 }

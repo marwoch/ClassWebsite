@@ -15,8 +15,8 @@
         </header>
         <nav>
             <ul class="nav nav-pills">
-                <li role="presentation" class="active"><a href="/Home/Index">Home</a></li>
-                <li role="presentation"><a href="/Home/About">About</a></li>
+                <li role="presentation" class="active">@Html.ActionLink("Home", "Index", "Home")</li>
+                <li role="presentation">@Html.ActionLink("About", "About", "Home")</li>
                 @if (Session["MemberID"] == null)
                 {
                     <li role="presentation">@Html.ActionLink("Register", "Register", "Account")</li>

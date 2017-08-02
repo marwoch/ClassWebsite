@@ -24,7 +24,7 @@
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.WholesalePrice)
+            @Html.DisplayNameFor(model => model.PhotoLocation)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.RetailPrice)
@@ -47,7 +47,11 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.WholesalePrice)
+            @if (item.PhotoLocation != null)
+            {
+                <img src="~/Images/@item.PhotoLocation" width="50" height="50" />
+            }
+            
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.RetailPrice)
@@ -61,3 +65,21 @@
 }
 
 </table>
+
+<ul class="pagination">
+    @for(int i = 1; i <= ViewBag.MaxPage; i++)
+    {
+        if (ViewBag.CurrentPage == i)
+        {
+            <li class="active">
+                @Html.ActionLink($"{i}", "Index", new{id = i})
+            </li>
+        }
+        else
+        {
+            <li>
+                @Html.ActionLink($"{i}", "Index", new { id = i })
+            </li>
+        }
+    }
+</ul>

@@ -145,6 +145,10 @@
     <Compile Include="Migrations\201707172147168_AddedProduct.Designer.cs">
       <DependentUpon>201707172147168_AddedProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708022104438_AddedProductPhotoLocation.cs" />
+    <Compile Include="Migrations\201708022104438_AddedProductPhotoLocation.Designer.cs">
+      <DependentUpon>201708022104438_AddedProductPhotoLocation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\ECommerceDB.cs" />
@@ -184,6 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201707172052086_AddedMember.resx">
@@ -194,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707172147168_AddedProduct.resx">
       <DependentUpon>201707172147168_AddedProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708022104438_AddedProductPhotoLocation.resx">
+      <DependentUpon>201708022104438_AddedProductPhotoLocation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
