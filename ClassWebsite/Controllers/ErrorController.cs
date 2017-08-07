@@ -6,18 +6,14 @@ using System.Web.Mvc;
 
 namespace ClassWebsite.Controllers
 {
-    public class HomeController : Controller
+    public class ErrorController : Controller
     {
-        // GET: Home
-        [HttpGet]
-        public ActionResult Index()
+        public ActionResult ServerProblem()
         {
-            //throw new Exception(); // just an example
             return View();
         }
 
-        [HttpGet]
-        public ActionResult About()
+        public ActionResult NotFound()
         {
             return View();
         }

@@ -7,6 +7,9 @@
 <h2>Register</h2>
 
 <form method="post">
+    @Html.ValidationSummary(false) @*quick way to do validation error*@
+    <br />
+    <br />
     @Html.LabelFor(m => m.Username)
     @Html.EditorFor(m => m.Username)
     @Html.ValidationMessageFor(m => m.Username)
@@ -24,4 +27,5 @@
     @Html.ValidationMessageFor(m => m.Email)
     <br />
     <input type="submit" value="Register" />
+
 </form>

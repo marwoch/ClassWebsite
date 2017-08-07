@@ -22,6 +22,11 @@ namespace ClassWebsite.Controllers
         [HttpPost]
         public ActionResult Register(RegisterViewModel mem)
         {
+            if (MemberDB.DoesUserNameExist(mem.Username))
+            {
+                ModelState.AddModelError("DuplicateUsername", "Somebody already has that username");
+                return View(mem);
+            }
             // make sure model is valid
             if (ModelState.IsValid)
             {
