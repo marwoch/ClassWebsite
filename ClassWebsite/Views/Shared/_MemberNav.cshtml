@@ -1,0 +1,10 @@
+﻿@if (Session["MemberID"] == null)
+{
+    <li role="presentation">@Html.ActionLink("Register", "Register", "Account")</li>
+    <li role="presentation">@Html.ActionLink("Sign-in", "Login", "Account")</li>
+}
+else
+{
+    <li role="presentation">@Html.ActionLink("Log Out", "LogOut", "Account")</li>
+    <li role="presentation">@Html.ActionLink("View Profile", "MyAccount", "Account")</li>
+}

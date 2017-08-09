@@ -17,16 +17,8 @@
             <ul class="nav nav-pills">
                 <li role="presentation" class="active">@Html.ActionLink("Home", "Index", "Home")</li>
                 <li role="presentation">@Html.ActionLink("About", "About", "Home")</li>
-                @if (Session["MemberID"] == null)
-                {
-                    <li role="presentation">@Html.ActionLink("Register", "Register", "Account")</li>
-                    <li role="presentation">@Html.ActionLink("Sign-in", "Login", "Account")</li>
-                }
-                else
-                {
-                    <li role="presentation">@Html.ActionLink("Log Out", "LogOut", "Account")</li>
-                    <li role="presentation">@Html.ActionLink("View Profile", "MyAccount", "Account")</li>
-                }
+                @*@Html.Partial("_MemberNav")*@
+                @Html.Partial("~/Views/Shared/_MemberNav.cshtml")
                 <li role="presentation">@Html.ActionLink("View Products", "Index", "Product")</li>
             </ul>
         </nav>

@@ -185,6 +185,7 @@
     <Content Include="Views\Cart\ViewCart.cshtml" />
     <Content Include="Views\Error\ServerProblem.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Shared\_MemberNav.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
