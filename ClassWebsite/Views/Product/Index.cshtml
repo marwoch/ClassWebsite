@@ -32,48 +32,49 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StockKeepingUnit)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @if (item.PhotoLocation != null)
-            {
-                <img src="~/Images/@item.PhotoLocation" width="50" height="50" />
-            }
-            
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RetailPrice)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductID }) |
-            @Html.ActionLink("Add to Cart", "AddToCart", "Cart", new { id=item.ProductID}, null)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StockKeepingUnit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @if (item.PhotoLocation != null)
+                {
+                    <img src="~/Images/@item.PhotoLocation" width="50" height="50" />
+                }
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RetailPrice)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProductID }) |
+                @Html.ActionLink("Add to Cart", "AddToCart", "Cart", new { id = item.ProductID }, null)
+            </td>
+        </tr>
+    }
 
 </table>
 
 <ul class="pagination">
-    @for(int i = 1; i <= ViewBag.MaxPage; i++)
+    @for (int i = 1; i <= ViewBag.MaxPage; i++)
+{
+    if (ViewBag.CurrentPage == i)
     {
-        if (ViewBag.CurrentPage == i)
-        {
-            <li class="active">
-                @Html.ActionLink($"{i}", "Index", new{id = i})
-            </li>
+    <li class="active">
+        @Html.ActionLink($"{i}", "Index", new { id = i })
+    </li>
         }
         else
         {
@@ -83,3 +84,41 @@
         }
     }
 </ul>
+
+<br />
+<br />
+
+<div id="prodList">
+
+
+</div>
+<ul class="pagination">
+    @for (int i = 1; i <= ViewBag.MaxPage; i++)
+    {
+        <li>
+            @Ajax.ActionLink($"{i}",
+                "GetProds",
+                new { id = i },
+                new AjaxOptions
+                {
+                    InsertionMode = InsertionMode.Replace,
+                    HttpMethod = "POST",
+                    UpdateTargetId = "prodList",
+                    OnBegin = "StartProductLoad()",
+                    OnComplete = "EndProductLoad()"
+                })
+        </li>
+    }
+</ul>
+
+<img  hidden="hidden" src="~/Images/giphy-downsized.gif" id="loader" width="75" height="75" />
+
+<script type="text/javascript">
+    function StartProductLoad() {
+        $("#loader").removeAttr("hidden");
+    }
+
+    function EndProductLoad() {
+        $("#loader").attr("hidden", "hidden");
+    }
+</script>

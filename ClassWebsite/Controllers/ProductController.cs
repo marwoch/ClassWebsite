@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -118,6 +119,22 @@ namespace ClassWebsite.Controllers
             }
             ProductDB.DeleteProductById(id.Value);
             return RedirectToAction("Index");
+        }
+
+        public PartialViewResult GetProds(int id)
+        {
+            int currPage = id;
+            const int ProdsPerPage = 2;
+
+            var db = new ECommerceDB();
+            List<Product> prods =
+                db.Products
+                .OrderBy(p => p.Name)
+                .Skip((currPage - 1) * ProdsPerPage)
+                .Take(ProdsPerPage)
+                .ToList();
+
+            return PartialView("_PartialProdList", prods);
         }
     }
 }

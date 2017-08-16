@@ -15,7 +15,7 @@
         </header>
         <nav>
             <ul class="nav nav-pills">
-                <li role="presentation" class="active">@Html.ActionLink("Home", "Index", "Home")</li>
+                <li role="presentation">@Html.ActionLink("Home", "Index", "Home")</li>
                 <li role="presentation">@Html.ActionLink("About", "About", "Home")</li>
                 @*@Html.Partial("_MemberNav")*@
                 @Html.Partial("~/Views/Shared/_MemberNav.cshtml")
@@ -29,7 +29,38 @@
             <p>&copy; @DateTime.Now.Year - Rennaisance Code Monkey</p>
         </footer>
     </div><!--end container-->
-    <script>src = "~/Scripts/jquery-1.9.1.js"</script>
-    <script>src = "~/Sripts/bootstrap.js"</script>
+    <script type="text/javascript" src="~/Scripts/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script type="text/javascript">
+        //find anchor tag with current url
+        //add a class of 'active' to the parent LI
+        //works w/ action link
+        $(".nav-pills li a").filter(
+            function () {
+                return this.href == location.href;
+            }).parent("li").addClass("active");
+
+        //onmouseover - add class of active to li
+        $(".nav-pills li").mouseover(
+            function () {
+                $(this).addClass("active");
+            });
+
+        //on mouseleave, removes highlighting while leaving the current page highlighted
+        $(".nav-pills li").mouseleave(
+            function () {
+                if (location.href == $(this).children("a").href)
+                    return;
+               
+                $(this).removeClass("active");
+                //if ($(".nav-pills li.active").length > 1) {
+                //    $(this).removeClass("active");
+                //}
+            });
+    </script>
+    @RenderSection("scripts", false)
+
+
 </body>
 </html>
